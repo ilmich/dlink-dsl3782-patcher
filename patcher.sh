@@ -10,7 +10,7 @@ if [ $UID != "0" ]; then
     exit 1
 fi
 
-for i in binwalk tcrevenge unsquashfs mksquashfs; do
+for i in tcrevenge unsquashfs mksquashfs; do
 	if [ -z $(command -v $i) ]; then
 		echo "$i not found!"
 		exit 1
