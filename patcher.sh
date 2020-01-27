@@ -1,5 +1,7 @@
 #!/bin/bash -e
 
+PWD=`pwd`
+
 TOOLCHAIN_PATH=$PWD/toolchain/mips-linux-uclibc/
 KERNEL_STARTADDR='\x80\x00\x20\x00'
 
@@ -16,10 +18,8 @@ for i in binwalk tcrevenge unsquashfs mksquashfs; do
 done
 
 KERNEL_OFFSET=256
-SQUASHFS_OFFSET=`binwalk tclinux.bin | awk '/Squash/ {print $1;}'`
 TMPDIR=tmp
 OUTDIR=out
-PWD=`pwd`
 
 if [ ! -x $TMPDIR ]; then
 	mkdir $TMPDIR
@@ -28,6 +28,11 @@ fi
 if [ ! -x $OUTDIR ]; then
 	mkdir $OUTDIR
 fi
+
+# find squashfs offset
+dd if=tclinux.bin of=$TMPDIR/squash_offset skip=$((0x50)) bs=1 count=4
+SQUASHFS_OFFSET=$((0x`cat $TMPDIR/squash_offset | xxd -p `))
+SQUASHFS_OFFSET=$(($SQUASHFS_OFFSET + 256 ))
 
 echo "Extracting kernel at offset $KERNEL_OFFSET with size $(($SQUASHFS_OFFSET - 256)) "
 dd if=tclinux.bin skip=$KERNEL_OFFSET of=$OUTDIR/kernel bs=1 count=$(($SQUASHFS_OFFSET - 256))  status=progress
