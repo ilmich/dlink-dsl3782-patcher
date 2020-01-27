@@ -33,3 +33,10 @@ rm $ROMFS/boaroot/html/layout/*.ttf
 echo "Removing unused css"
 rm $ROMFS/boaroot/html/layout/core-talktalk*.css
 
+echo "Patching webgui"
+cp scripts/webgui.patch $ROMFS/webgui.patch
+(
+    cd $ROMFS
+    patch -p0 < ./webgui.patch
+    rm ./webgui.patch
+)

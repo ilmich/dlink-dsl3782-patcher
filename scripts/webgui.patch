@@ -1,0 +1,29 @@
+diff -rupN boaroot/html/js/New_GUI/menu.js boaroot.patched/html/js/New_GUI/menu.js
+--- boaroot/html/js/New_GUI/menu.js	2018-04-04 07:15:19.000000000 +0200
++++ boaroot.patched/html/js/New_GUI/menu.js	2020-01-27 19:04:19.753991147 +0100
+@@ -20,20 +20,20 @@ function initialMenu()
+ 	menu 		+= "	</li>";
+ 	menu 		+= "	<li class='parent' onmouseover='this.className=\"parentOn\"' onmouseout='this.className=\"parent\"'><a id='menu_Advanced' href='#'>"+m_menu_features+"</a>";
+ 	menu 		+= "		<ul>";
+-	//menu 		+= "			<li><a href='javascript:CheckHTMLStatus(\"QoS\");'>"+"QoS Engine"+"</a></li>";
++	menu 		+= "			<li><a href='javascript:CheckHTMLStatus(\"QoS\");'>"+"QoS Engine"+"</a></li>";
+ 	menu 		+= "			<li><a href='javascript:CheckHTMLStatus(\"Firewall\");'>"+m_menu_features_firewall+"</a></li>";
+ 	menu 		+= "			<li><a href='javascript:CheckHTMLStatus(\"Application\");'>"+m_menu_features_app+"</a></li>";
+-	//menu 		+= "			<li><a href='javascript:CheckHTMLStatus(\"Dmz\");'>"+"DMZ (Exposed Host)"+"</a></li>"; 
++	menu 		+= "			<li><a href='javascript:CheckHTMLStatus(\"Dmz\");'>"+"DMZ (Exposed Host)"+"</a></li>"; 
+ 	menu 		+= "			<li><a href='javascript:CheckHTMLStatus(\"Acl\");'>"+m_menu_features_acl+"</a></li>";
+ 	menu 		+= "			<li><a href='javascript:CheckHTMLStatusSessionKey(\"VirtualServer\");'>"+m_menu_features_pf+"</a></li>";
+ 	menu 		+= "			<li><a href='javascript:CheckHTMLStatus(\"IpFilter\");'>"+m_menu_features_ip_mac_filter+"</a></li>";
+ 	menu 		+= "			<li><a href='javascript:CheckHTMLStatus(\"StaticRoute\");'>"+m_menu_features_route+"</a></li>";
+ 	// menu 		+= "			<li><a href='javascript:CheckHTMLStatus(\"Tr069\");'>"+"TR069"+"</a></li>";
+-	//menu 		+= "			<li><a href='javascript:CheckHTMLStatus(\"Dns\");'>"+"DNS"+"</a></li>";
++	menu 		+= "			<li><a href='javascript:CheckHTMLStatus(\"Dns\");'>"+"DNS"+"</a></li>";
+ 	menu 		+= "			<li><a href='javascript:CheckHTMLStatus(\"DynamicDNS\");'>"+m_menu_features_ddns+"</a></li>";		
+ 	menu 		+= "			<li><a href='javascript:CheckHTMLStatus(\"Igmp\");'>"+"IGMP"+"</a></li>";		
+-	//menu 		+= "			<li><a href='javascript:CheckHTMLStatus(\"SH\");'>"+"Self Help"+"</a></li>";		
+-	// menu 		+= "			<li><a href='javascript:CheckHTMLStatus(\"ParentalControl\");'>"+m_menu_features_url_filter+"</a></li>";
++	menu 		+= "			<li><a href='javascript:CheckHTMLStatus(\"SH\");'>"+"Self Help"+"</a></li>";		
++	menu 		+= "			<li><a href='javascript:CheckHTMLStatus(\"ParentalControl\");'>"+m_menu_features_url_filter+"</a></li>";
+ 	menu 		+= "		</ul>";
+ 	menu 		+= "	</li>";
+ 	menu 		+= "	<li class='parent' onmouseover='this.className=\"parentOn\"' onmouseout='this.className=\"parent\"'><a id='menu_Management' href='#'>"+m_menu_management+"</a>";
